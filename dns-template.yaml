@@ -1,0 +1,17 @@
+providers:
+  config:
+    class: octodns.provider.yaml.YamlProvider
+    directory: ./zones
+  azuredns:
+    class: octodns.provider.azuredns.AzureProvider
+    client_id: <$cid>
+    key: <$key>
+    directory_id: <$did>
+    sub_id: <$sid>
+    resource_group: <$rg>
+zones:
+ <$zone>.:
+    sources:
+      - config
+    targets:
+      - azuredns
